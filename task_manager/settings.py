@@ -131,7 +131,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'tasks:index'
+LOGIN_REDIRECT_URL = 'tasks:tasks-all'
+LOGOUT_REDIRECT_URL = 'tasks:index'
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587

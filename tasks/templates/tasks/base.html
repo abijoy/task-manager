@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks - {% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    <div class="navbar" style="float: right;">
+    {% if request.user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <a href="{% url 'tasks:task-create' %}" style="font-size: 20px;">Add Task</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
+    </div>
+    {% block content %} {% endblock %}
+  </body>
+</html>
