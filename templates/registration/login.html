@@ -10,6 +10,7 @@
     {{ form }}
     <input type="submit" value="login" />
   </form>
-  <a href="#">Register</a>
+  <a href="#">Register</a><br />
+  <a href="{% url 'password_reset' %}">forgot password ? </a>
 </div>
 {% endblock %}
