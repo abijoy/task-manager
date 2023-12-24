@@ -1,9 +1,11 @@
+from django.forms.models import BaseModelForm
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.views.generic import View, ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Task
+from .forms import TaskForm
 # Create your views here.
 def index(request):
     return HttpResponse(f'Hello - {request.user}. This your Tasks home')
@@ -31,7 +33,9 @@ class TaskDetailView(LoginRequiredMixin, DetailView):
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
-    fields = ['title', 'description', 'due_date', 'priority']
+    # fields = ['title', 'description', 'due_date', 'priority']
+
+    form_class = TaskForm
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -44,7 +48,8 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
 
 class TaskUpdateView(LoginRequiredMixin, UpdateView):
     model = Task
-    fields = ['title', 'description', 'due_date', 'priority', 'is_completed']
+    # fields = ['title', 'description', 'due_date', 'priority', 'is_completed']
+    form_class = TaskForm
 
     def get_object(self, queryset=None):
         obj = get_object_or_404(self.model, pk=self.kwargs.get('pk'))
@@ -67,29 +72,6 @@ class TaskDeleteView(LoginRequiredMixin, DeleteView):
     
     success_url = reverse_lazy('tasks:tasks-all')
 
-
-# class TaskCRUDView(View):
-#     def get(self, request, id):
-#         task = Task.objects.get(id=id)
-#         return render(request, 'tasks/task.html', {'task': task})
-
-#     # def post(self, request):
-#     #     # Create an object
-#     #     item = Task.objects.create(
-#     #         title=request.POST['title'], 
-#     #         description=request.POST['description']
-#     #     )
-#     #     return redirect('Task-list')
-
-#     # def put(self, request, pk):
-#     #     # Update an object
-#     #     item = Task.objects.get(pk=pk)
-#     #     item.title = request.POST['title']
-#     #     item.description = request.POST['description']
-#     #     item.save()
-#     #     return redirect('Task-list')
-
-#     # def delete(self, request, pk):
 #     #     # Delete an object
 #     #     item = Task.objects.get(pk=pk)
 #     #     item.delete()
