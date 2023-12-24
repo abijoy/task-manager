@@ -3,9 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <title>Users - {% block title %} {% endblock %}</title>
   </head>
   <body>
-    {% block content %} {% endblock %}
+
+
+    <div id="navbar" style="margin-bottom: 20px;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+        <!-- add brand logo -->
+        <a class="navbar-brand" href="{% url 'tasks:tasks-all' %}">
+          Home
+        </a>
+
+        <!-- add navbar toggler for responsiveness -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nabarNav" aria-controls="nabarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="nabarNav">
+    
+          <!-- add nav items  -->
+          <ul class="navbar-nav ml-auto">
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'tasks:task-create' %}">Add Task</a>
+                </li>
+
+                <liclass="nav-item">
+                  <a  class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+              {% endif %}
+           </ul>
+        </div>
+      </nav>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+          <div class="col-md-4 col-lg-4"></div>
+          <div class="col-md-4 col-lg-4">
+              {% block content %}
+              {% endblock %}
+          </div>
+          <div class="col-md-4 col-lg-4"></div>
+      </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>

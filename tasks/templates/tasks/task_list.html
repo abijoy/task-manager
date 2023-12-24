@@ -4,6 +4,7 @@
 
 
 {% block content %}
+<h3>My Tasks List <small> ({{ request.user }}) </small></h3> 
 <ul>
 	{% for task in tasks %}
         <li><a href="{% url 'tasks:task-detail' task.id %}">{{ task.title }}</li>

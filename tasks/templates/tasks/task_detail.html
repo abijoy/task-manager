@@ -1,18 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'tasks/base.html' %}
+{% load crispy_forms_tags %}
+
 {% block title %} Task {% endblock %}
 {% block content %}
 {% if task %}
-    <p>Title: {{task.title}}</p>
-    <p>description: {{task.description}}</p>
-    <p>Due Date: {{ task.due_date }}</p>
-    <p>Completed Yet: 
+
+<div class="card" style="width: 25rem;">
+    <img class="card-img-top" src="https://placehold.co/400x300" alt="Task Image">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <p class="card-text"> {{ task.description }} </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Due Date: {{ task.due_date }}</li>
+      <li class="list-group-item">
+        Completed Yet: 
         {% if task.is_completed %}
         Yes
         {% else %}
         No
         {% endif %}
-    </p>
-    <a href="{% url 'tasks:task-update' task.id %}"><button>Update</button></a>
-    <a href="{% url 'tasks:task-delete' task.id %}"><button>Delete</button></a>
+      </li>
+    </ul>
+    <div class="card-body">
+        <a href="{% url 'tasks:task-update' task.id %}"><button class="btn btn-primary">Update</button></a>
+        <a href="{% url 'tasks:task-delete' task.id %}"><button class="btn btn-danger">Delete</button></a>
+    </div>
+  </div>
 {% endif %}
 {% endblock %}

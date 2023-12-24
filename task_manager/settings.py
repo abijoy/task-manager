@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'crispy_forms',
+    'crispy_bootstrap4',
     'users',
     'tasks',
 ]
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # django_project/settings.py
@@ -147,7 +149,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'tasks:tasks-all'
-LOGOUT_REDIRECT_URL = 'tasks:index'
+LOGOUT_REDIRECT_URL = 'tasks:tasks-all'
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
