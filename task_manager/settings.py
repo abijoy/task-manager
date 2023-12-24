@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'crispy_forms',
     'users',
     'tasks',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # django_project/settings.py
 REST_FRAMEWORK = {
