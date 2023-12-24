@@ -1,13 +1,82 @@
 {% extends 'tasks/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %} List {% endblock %}
 
 
 {% block content %}
 <h3>My Tasks List <small> ({{ request.user }}) </small></h3> 
-<ul>
+
+
+<form id="searchForm">
+	<div class="form-group">
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+				<div class="input-group-text">Task Title</div>
+			</div>
+			<input type="text" class="form-control" id="title" name="title" placeholder="Enter title...">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<a class="btn btn-primary" data-toggle="collapse" href="#filterDiv" role="button" aria-expanded="false" aria-controls="filterDiv">
+			Add filter
+		</a>
+
+		<!-- <button class="btn btn-primary" id="filter_btn" type="button">Add Filters</button> -->
+	</div>
+
+
+
+	<div id="filterDiv" class="collapse multi-collapse">
+	
+		<div class="form-group">
+			<div class="input-group mb-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text">Creation Date</div>
+				</div>
+				<input type="date" class="form-control" id="creation_date" name="creation_date">
+			</div>
+		</div>
+	
+		<div class="form-group">
+			<div class="input-group mb-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text">Due Date</div>
+				</div>
+				<input type="date" class="form-control" id="due_date" name="due_date">
+			</div>
+		</div>
+	
+		<div class="form-group">
+		<label for="priority">Priority</label>
+		<select class="form-control" id="priority" name="priority">
+			<option value="">Choose</option>
+			<option value="HIGH">High</option>
+			<option value="MEDIUM">Medium</option>
+			<option value="LOW">Low</option>
+		</select>
+		</div>
+	
+		<div class="form-group">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="is_completed" name="is_completed">
+				<label class="form-check-label" for="is_completed">
+				Completed
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group" id="submit_btn">
+		<input class="btn btn-outline-success form-control" type="submit" value="Search">
+	</div>
+  </form>
+
+
+<ul style="padding-left: 0%;">
 	{% for task in tasks %}
-        <li><a href="{% url 'tasks:task-detail' task.id %}">{{ task.title }}</li>
+        <li style="list-style-type: none;"><a href="{% url 'tasks:task-detail' task.id %}">{{ task.title }}</li>
 	{% empty %}
         <li>No tasks yet.</li>
 	{% endfor %}

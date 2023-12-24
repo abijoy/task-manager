@@ -15,8 +15,11 @@ class TaskListView(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
 
+
     def get_queryset(self):
-        return Task.objects.filter(user=self.request.user)
+        # return Task.objects.filter(user=self.request.user)
+        qs = filter(self.request)
+        return qs
     
 
 from django.core.exceptions import PermissionDenied
@@ -72,7 +75,33 @@ class TaskDeleteView(LoginRequiredMixin, DeleteView):
     
     success_url = reverse_lazy('tasks:tasks-all')
 
-#     #     # Delete an object
-#     #     item = Task.objects.get(pk=pk)
-#     #     item.delete()
-#     #     return redirect('Task-list')
+
+def is_valid_queryparam(param):
+    return param != '' and param is not None
+
+def filter(request):
+    qs = Task.objects.filter(user=request.user)
+    title = request.GET.get('title')
+    creation_date = request.GET.get('creation_date')
+    due_date = request.GET.get('due_date')
+    priority = request.GET.get('priority')
+    is_completed = request.GET.get('is_completed')
+
+
+    if is_valid_queryparam(title):
+        qs = qs.filter(title__icontains=title)
+
+    if is_valid_queryparam(due_date):
+        qs = qs.filter(due_date=due_date)
+
+    if is_valid_queryparam(creation_date):
+        qs = qs.filter(created_at__date=creation_date)
+
+    if is_valid_queryparam(priority):
+        qs = qs.filter(priority=priority)
+
+    if is_completed == 'on':
+        qs = qs.filter(is_completed=True)
+    
+    return qs
+
