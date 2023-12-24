@@ -1,10 +1,10 @@
 from django.forms.models import BaseModelForm
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.views.generic import View, ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Task
+from .models import Task, Photo
 from .forms import TaskForm
 # Create your views here.
 def index(request):
@@ -40,6 +40,22 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
 
     form_class = TaskForm
 
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        photos = request.FILES.getlist('photo')
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.user = request.user
+            f.save()
+            for p in photos:
+                Photo.objects.create(task=f, photo=p)
+            
+            return HttpResponseRedirect('/tasks/all/')
+        else:
+            self.form_invalid(form)
+
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.user = self.request.user
@@ -53,6 +69,12 @@ class TaskUpdateView(LoginRequiredMixin, UpdateView):
     model = Task
     # fields = ['title', 'description', 'due_date', 'priority', 'is_completed']
     form_class = TaskForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["prev_photos"] = self.object.photos.all()
+        print(context['prev_photos'])
+        return context
 
     def get_object(self, queryset=None):
         obj = get_object_or_404(self.model, pk=self.kwargs.get('pk'))
