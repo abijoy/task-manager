@@ -26,7 +26,24 @@ If you are using Linux please refer to this blog post to install and configure P
 ### Set up the .env file
 `cat .env.example > .env`
 
-Then modify your  `.env` accordingly.
+In your `.env` set the following environment variables:
+
+DJANGO SPECIFIC CONFIG
+* `SECRET_KEY`: add a arbitrary secret key needed by django
+* `DEBUG`: set either `True` or `False`
+
+DATABASE CONFIG
+* `DB_NAME`:  set your postgreSQL database name.
+* `DB_USER`: set your database username.
+* `DB_PASSWORD`: set your database user password.
+
+EMAIL CONFIG
+* `EMAIL_HOST`: Your email host(i.e. smtp.gmail.com ) 
+* `EMAIL_PORT`: 587
+* `EMAIL_HOST_USER`: Your email address.
+* `EMAIL_HOST_PASSWORD`: Your email password.
+
+Carefully modify your  `.env` file.
 
 ### Now perform database migration
 `python manage.py migrate`
