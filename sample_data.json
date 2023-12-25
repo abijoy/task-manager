@@ -1,0 +1,228 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$dgxkdDuN9xIdaFlVlpvIb1$lJ7wnc2m+KeGw966iGsPCEnFfOgT0hm2eP5m3MI+qCQ=",
+    "last_login": "2023-12-25T09:08:33.937Z",
+    "is_superuser": false,
+    "username": "alamin",
+    "first_name": "",
+    "last_name": "",
+    "email": "alamin.csecu.bd@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-12-25T09:08:33.434Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Agj7p8HwnRMljvPGkIvnZQ$Eqrh3rdQ1gVG72xG7yB/atc3yZSsxOV+VnFB2CAfib8=",
+    "last_login": "2023-12-25T09:24:15.066Z",
+    "is_superuser": false,
+    "username": "abijoy",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-12-25T09:24:14.561Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$QVhXcXr0EsFEC5ujYK6KAv$FmpprBFKCei1qwn4MsfIuHSdNW9Ge1f75ikDqUK6pmA=",
+    "last_login": "2023-12-25T09:27:01.207Z",
+    "is_superuser": false,
+    "username": "spike",
+    "first_name": "",
+    "last_name": "",
+    "email": "spikesp1089@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-12-25T09:27:00.684Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kqe28j95n6bc3k1ur30g1vwt5xotvbup",
+  "fields": {
+    "session_data": ".eJxVjE0OgjAYBe_StWna0hZ06Z4zNN-voAYSCivj3ZWEhW7fzLyXKbCtQ9mqLGVkczGNOf1uCPSQaQd8h-k2W5qndRnR7oo9aLX9zPK8Hu7fwQB1-NbCiUFDVNYM3mdVQnURfWLpXFDKQl1ECWdyPsXOJWzRcdMGBg5E5v0BI7s5Pg:1rHhEj:NZxalId5GXj332_Z6yIobXyn-KGfrtoBiWs_ZrFJb2U",
+    "expire_date": "2024-01-08T09:27:01.209Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "title": "Finish project proposal",
+    "description": "Complete the final draft of the project proposal and submit it to the client.",
+    "due_date": "2023-12-30",
+    "priority": "HIGH",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:12:07.499Z",
+    "updated_at": "2023-12-25T09:12:07.499Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "title": "Schedule team meeting",
+    "description": "Set up a meeting with the team to discuss project progress and next steps..",
+    "due_date": "2023-12-30",
+    "priority": "MEDIUM",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:15:47.277Z",
+    "updated_at": "2023-12-25T09:15:47.277Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "title": "Review design mockups",
+    "description": "Provide feedback on the design mockups created by the design team.",
+    "due_date": "2024-02-20",
+    "priority": "LOW",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:19:39.694Z",
+    "updated_at": "2023-12-25T09:19:39.694Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "title": "Complete bug fixes",
+    "description": "Address the reported bugs in the software application.",
+    "due_date": "2024-01-30",
+    "priority": "LOW",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:21:33.760Z",
+    "updated_at": "2023-12-25T09:21:33.760Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "title": "Prepare presentation for client",
+    "description": "Create a presentation to showcase the project's progress and deliverables to the client.",
+    "due_date": "2024-02-05",
+    "priority": "MEDIUM",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:22:22.074Z",
+    "updated_at": "2023-12-25T09:22:22.074Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "title": "Write test cases",
+    "description": "Develop test cases to ensure the quality of the software code.",
+    "due_date": "2024-01-25",
+    "priority": "MEDIUM",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:23:05.965Z",
+    "updated_at": "2023-12-25T09:23:05.965Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 7,
+  "fields": {
+    "user": 2,
+    "title": "Deploy application to production",
+    "description": "Deploy the completed application to the production environment.",
+    "due_date": "2024-03-01",
+    "priority": "HIGH",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:24:47.827Z",
+    "updated_at": "2023-12-25T09:24:47.827Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "title": "Follow up with client feedback",
+    "description": "Address the feedback provided by the client after the presentation.",
+    "due_date": "2024-02-29",
+    "priority": "MEDIUM",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:25:46.240Z",
+    "updated_at": "2023-12-25T09:25:46.240Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 9,
+  "fields": {
+    "user": 3,
+    "title": "Write documentation",
+    "description": "Create comprehensive documentation for the software application.",
+    "due_date": "2024-03-15",
+    "priority": "LOW",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:28:09.356Z",
+    "updated_at": "2023-12-25T09:28:09.356Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 10,
+  "fields": {
+    "user": 3,
+    "title": "Monitor application performance",
+    "description": "Track the performance of the application in the production environment and identify any issues.",
+    "due_date": "2024-04-01",
+    "priority": "HIGH",
+    "is_completed": false,
+    "created_at": "2023-12-25T09:29:40.699Z",
+    "updated_at": "2023-12-25T09:29:40.699Z"
+  }
+},
+{
+  "model": "tasks.photo",
+  "pk": 1,
+  "fields": {
+    "task": 1,
+    "photo": "uploads/tuxpi.com.1690750652_Ilc4o01.jpg"
+  }
+},
+{
+  "model": "tasks.photo",
+  "pk": 2,
+  "fields": {
+    "task": 8,
+    "photo": "uploads/Screenshot_from_2023-12-23_22-46-58.png"
+  }
+},
+{
+  "model": "tasks.photo",
+  "pk": 3,
+  "fields": {
+    "task": 10,
+    "photo": "uploads/images.png"
+  }
+}
+]
