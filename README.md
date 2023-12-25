@@ -73,7 +73,7 @@ the application will be running on **http://127.0.0.1:8000/**
 
 ### List All The Tasks
 
-Request: `GET /api/v1/`
+Endpoint: `GET /api/v1/`
 
 Simple Response:
 ```json
@@ -141,9 +141,9 @@ id is created automatically after saving the task.
 }
 ```
 ### Update A Task
-  Endpoint: `PUT /api/v1/<pk>/`
+  Endpoint: `PUT /api/v1/{pk}/`
 
-  Endpoint: `PATCH /api/v1/<pk>/`
+  Endpoint: `PATCH /api/v1/{pk}/`
 
   Sample Request using `PATCH` Method:
 
