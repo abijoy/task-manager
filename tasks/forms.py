@@ -3,7 +3,7 @@ from .models import Task, Photo
 
 
 class TaskForm(forms.ModelForm):
-    photo = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    photo = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
     class Meta:
         model = Task
         fields = ['title', 'description', 'due_date', 'priority', 'is_completed', 'photo']

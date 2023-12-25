@@ -1,6 +1,6 @@
 {% extends 'tasks/base.html' %}
 {% load crispy_forms_tags %}
-
+{% load tz %}
 {% block title %} Task {% endblock %}
 {% block content %}
 {% if task %}
@@ -28,6 +28,16 @@
         No
         {% endif %}
       </li>
+      <li class="list-group-item">
+
+          {% timezone "Asia/Dhaka" %}
+            <small>
+              Creation date: {{ task.created_at.date }} <br>
+              Last Updated: {{ task.updated_at }}
+            </small>
+          {% endtimezone %}
+      </li>
+
     </ul>
     <div class="card-body">
         <a href="{% url 'tasks:task-update' task.id %}"><button class="btn btn-primary">Update</button></a>
