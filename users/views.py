@@ -12,7 +12,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('tasks:index')
+            return redirect('tasks:tasks-all')
         return render(request, 'users/register.html', {'form': form})
     form = CustomUserCreationForm()
     return render(request, 'users/register.html', {'form': form})
