@@ -6,6 +6,19 @@
 
 `cd task-manager`
 
+## Run the project using Docker
+
+create env files: `.env` and `.env.db` and make necessary changes according to `.env.example` and `.env.db.example`
+
+after you are done with creating the env files, run:
+
+`docker-compose build`
+
+`docker-compose up`
+
+Note: make sure you have docker installed on your system.
+
+## Or run the project ususal way
 ### Install the required packages
 
 First create and activate virtual environment then install the required packages.
